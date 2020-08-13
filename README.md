@@ -33,3 +33,5 @@ This will start the Express Server on http://localhost:5000
 
 Client and Server should now be started!
 
+
+### Disclaimer: PROJECT IS NOT COMPLETE!
