@@ -25,7 +25,11 @@ Next, open a new terminal in and change directory to the main project directory 
 
 $ **node server/server.js** or $ **nodemon server/server.js**
 
+*Running nodemon vs node allows for automatic updates to the server when file changes occur*
+
 This will start the Express Server on http://localhost:5000
+
 ## 3. Done
-    Client and Server should now be started!
+
+Client and Server should now be started!
 
