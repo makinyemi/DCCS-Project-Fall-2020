@@ -16,13 +16,8 @@ app.use(cors());
 //Local Files used
 app.use("/task", taskRouter);
 
-//Port connection
+//Port Connection
 const port = 5000;
-const ip = "34-229-235-62";
-const url =
-	process.env.NODE_ENV === "development"
-		? `http://localhost:${port}/`
-		: `http://ec2-${ip}.compute-1.amazonaws.com`;
 
 app.listen(port, () => {
 	console.log(`Server is now running at http://localhost:${port}...`);
