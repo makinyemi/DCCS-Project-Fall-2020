@@ -1,31 +1,28 @@
-import React, { Component } from 'react'
-import './App.css';
-import Header from './components/Header';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import TaskList from "./components/TaskList";
+import AddTask from "./components/AddTask";
+import UpdateTask from "./components/EditTask";
+import Footer from "./components/Footer";
 
 export class App extends Component {
-  static propTypes = {
-
-  }
-
-  render() {
-    return (
-      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <Header/>
-
-  <main role="main" class="inner cover">
-    <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary">Click to Continue</a>
-    </p>
-  </main>
-
-  <footer class="mastfoot mt-auto">
-    <div class="inner">
-      <p>Data and Cloud Computing Society, 2020 ©</p>
-    </div>
-  </footer>
-</div>
-    )
-  }
+	render() {
+		return (
+			<Router>
+				<Header />
+				<div className="container">
+					<Navbar />
+					<Route path="/" exact component={TaskList} />
+					<Route path="/update/:id" exact component={UpdateTask} />
+					<Route path="/add" exact component={AddTask} />
+				</div>
+				<Footer />
+			</Router>
+		);
+	}
 }
 
-export default App
+export default App;
