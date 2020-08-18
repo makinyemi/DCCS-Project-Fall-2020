@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
+import { url } from "../utils/axiosConfig";
 
 export class EditTask extends Component {
 	constructor(props) {
@@ -20,7 +21,7 @@ export class EditTask extends Component {
 
 	componentDidMount() {
 		axios
-			.get("http://localhost:5000/task/" + this.props.match.params.id)
+			.get(url + this.props.match.params.id)
 			.then((response) => {
 				console.log(this.props.match.params.id);
 				this.setState({
@@ -62,10 +63,7 @@ export class EditTask extends Component {
 		console.log(task);
 
 		axios
-			.post(
-				"http://localhost:5000/task/update/" + this.props.match.params.id,
-				task
-			)
+			.post(url + "update/" + this.props.match.params.id, task)
 			.then((res) => console.log(res.data));
 
 		window.location = "/";

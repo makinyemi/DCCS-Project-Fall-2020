@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { url } from "../utils/axiosConfig";
 
 const Task = (props) => (
 	<tr>
@@ -34,7 +35,7 @@ export class TaskList extends Component {
 
 	componentDidMount() {
 		axios
-			.get("http://localhost:5000/task")
+			.get(url)
 			.then((response) => {
 				this.setState({ tasks: response.data });
 			})
@@ -44,9 +45,7 @@ export class TaskList extends Component {
 	}
 
 	deleteTask(id) {
-		axios
-			.delete("http://localhost:5000/task/" + id)
-			.then((res) => console.log(res.data));
+		axios.delete(url + id).then((res) => console.log(res.data));
 
 		this.setState({
 			tasks: this.state.tasks.filter((el) => el._id !== id)

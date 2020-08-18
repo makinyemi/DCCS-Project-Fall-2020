@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
+import { url } from "../utils/axiosConfig";
 
 export class AddTask extends Component {
 	constructor(props) {
@@ -45,9 +46,7 @@ export class AddTask extends Component {
 
 		console.log(task);
 
-		axios
-			.post("http://localhost:5000/task/add", task)
-			.then((res) => console.log(res.data));
+		axios.post(url + "add", task).then((res) => console.log(res.data));
 
 		window.location = "/";
 	}
