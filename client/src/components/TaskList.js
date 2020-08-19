@@ -7,7 +7,7 @@ const Task = (props) => (
 	<tr>
 		<td>{props.task.name}</td>
 		<td>{props.task.description}</td>
-		<td>{props.task.date.substring(0, 10)}</td>
+		<td>{String(props.task.date).substring(0, 10)}</td>
 		<td>
 			<Link to={"/update/" + props.task._id}>edit</Link> |
 			<a
@@ -35,9 +35,9 @@ export class TaskList extends Component {
 
 	componentDidMount() {
 		axios
-			.get(url)
+			.get(String(url))
 			.then((response) => {
-				this.setState({ tasks: response.data });
+				this.setState({ tasks: Array.from(response.data) });
 			})
 			.catch((err) => {
 				console.log(err);
@@ -45,7 +45,7 @@ export class TaskList extends Component {
 	}
 
 	deleteTask(id) {
-		axios.delete(url + id).then((res) => console.log(res.data));
+		axios.delete(String(url) + id).then((res) => console.log(res.data));
 
 		this.setState({
 			tasks: this.state.tasks.filter((el) => el._id !== id)

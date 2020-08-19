@@ -63,7 +63,7 @@ export class EditTask extends Component {
 		console.log(task);
 
 		axios
-			.post(url + "update/" + this.props.match.params.id, task)
+			.post(String(url) + "update/" + this.props.match.params.id, task)
 			.then((res) => console.log(res.data));
 
 		window.location = "/";

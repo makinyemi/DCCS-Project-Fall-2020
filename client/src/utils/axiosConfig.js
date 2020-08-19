@@ -1,10 +1,9 @@
-import axios from "axios";
+import ip from "ip";
 
-const env = process.env.NODE_ENV; // current environment
+var env = process.env.NODE_ENV; // current environment
+var current_IP = ip.address().replace(/\./g, "-"); //Current ip
 
-export const app = axios.create({
-	baseURL:
-		env === "production"
-			? "http://http://ec2-3-89-138-171.compute-1.amazonaws.com/task/" // production
-			: "http://localhost:5000/task/" // development
-});
+export const url =
+	env === "production"
+		? `http://100.25.211.182:5000/task/` // production
+		: "http://localhost:5000/task/"; // development

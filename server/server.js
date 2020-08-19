@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+const url = require("./utils/utils");
 
 require("dotenv").config();
 
@@ -20,7 +21,7 @@ app.use("/task", taskRouter);
 const port = 5000;
 
 app.listen(port, () => {
-	console.log(`Server is now running at http://localhost:${port}...`);
+	console.log(`Server is now running at ${url}...`);
 });
 
 //MongoDB Connection

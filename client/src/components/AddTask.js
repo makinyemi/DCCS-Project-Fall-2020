@@ -46,7 +46,7 @@ export class AddTask extends Component {
 
 		console.log(task);
 
-		axios.post(url + "add", task).then((res) => console.log(res.data));
+		axios.post(String(url) + "add", task).then((res) => console.log(res.data));
 
 		window.location = "/";
 	}
